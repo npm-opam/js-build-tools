@@ -1,0 +1,26 @@
+<**/*.ml{,i}>: warn(-40), no_alias_deps
+<**/*>: thread
+# This prevents the implicit addition of -ppx options by ocamlfind
+<**/*>: predicate(custom_ppx)
+# OASIS_START
+# DO NOT EDIT (digest: 70749de9c7d1ab84bff34a227aef3a66)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library jane_street_ocamlbuild_goodies
+"ocamlbuild_goodies/jane_street_ocamlbuild_goodies.cmxs": use_jane_street_ocamlbuild_goodies
+<ocamlbuild_goodies/*.ml{,i,y}>: package(ocamlbuild)
+# Library oasis2opam_install
+"oasis2opam-install/oasis2opam_install.cmxs": use_oasis2opam_install
+# OASIS_STOP
